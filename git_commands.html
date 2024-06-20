@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git cheat sheet</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html">Мій особистий блог</a>
+    <span>Пасічник Єгор</span>
+    <div class="login-register">
+      <a href="login.html">Вхід</a>
+      <a href="register.html">Реєстрація</a>
+    </div>
+  </header>
+  <h1>Git cheat sheet</h1>
+
+  <h2>Налаштування інструментарію</h2>
+
+  <table border="1">
+      <tr>
+          <th>Команда</th>
+          <th>Опис</th>
+      </tr>
+      <tr>
+          <td><code>$ git config --global user.name "[ім'я]"</code></td>
+          <td>Встановлює ім’я користувача, що буде вказано для всіх ваших комітів</td>
+      </tr>
+      <tr>
+          <td><code>$ git config --global user.email "[поштова скринька]"</code></td>
+          <td>Встановлює поштову скриньку, що буде вказана для всіх ваших комітів</td>
+      </tr>
+      <tr>
+          <td><code>$ git config --global color.ui auto</code></td>
+          <td>Додає допоміжне забарвлення виводу в командній стрічці</td>
+      </tr>
+  </table>
+  <h2>Гілки</h2>
+
+<table border="1">
+    <tr>
+        <th>Команда</th>
+        <th>Опис</th>
+    </tr>
+    <tr>
+        <td><code>$ git branch [назва-гілки]</code></td>
+        <td>Створює нову гілку</td>
+    </tr>
+    <tr>
+        <td><code>$ git switch -c [назва-гілки]</code></td>
+        <td>Переходить на вказану гілку і оновлює робочу директорію</td>
+    </tr>
+    <tr>
+        <td><code>$ git merge [назва-гілки]</code></td>
+        <td>Поєднує історію вказаної гілки з поточною. На GitHub операція інколи потребує запиту (pull request)</td>
+    </tr>
+    <tr>
+        <td><code>$ git branch -d [назва-гілки]</code></td>
+        <td>Видаляє вказану гілку</td>
+    </tr>
+</table>
+
+<h2>Створення репозиторіїв</h2>
+
+<table border="1">
+    <tr>
+        <th>Команда</th>
+        <th>Опис</th>
+    </tr>
+    <tr>
+        <td><code>$ git init</code></td>
+        <td>Після виклику git init, створює посилання з локального репозиторію на пустий репозиторій на GitHub</td>
+    </tr>
+    <tr>
+        <td><code>$ git remote add origin [посилання]</code></td>
+        <td>Перетворює існуючу директорію на репозиторій Git</td>
+    </tr>
+    <tr>
+        <td><code>$ git clone [посилання]</code></td>
+        <td>Клонує (завантажує) існуючий репозиторій з GitHub, з усіма файлами, гілками і комітами</td>
+    </tr>
+</table>
+
+<h2>Файл .gitignore</h2>
+
+<table border="1">
+    <tr>
+        <td colspan="2">Інколи з репозиторію Git варто виключити деякі файли. Це можна зробити, створивши спеціальний файл під назвою .gitignore. Корисні шаблони для .gitignore файлів можна знайти на github.com/github/gitignore.</td>
+    </tr>
+</table>
+
+<h2>Синхронізація змін</h2>
+
+<table border="1">
+    <tr>
+        <th>Команда</th>
+        <th>Опис</th>
+    </tr>
+    <tr>
+        <td><code>$ git fetch</code></td>
+        <td>Завантажує всю історію з віддалених гілок</td>
+    </tr>
+    <tr>
+        <td><code>$ git merge</code></td>
+        <td>Поєднує віддалені гілки з поточною локальною гілкою</td>
+    </tr>
+    <tr>
+        <td><code>$ git push</code></td>
+        <td>Завантажує всі локальні зміни в гілках на GitHub</td>
+    </tr>
+    <tr>
+        <td><code>$ git pull</code></td>
+        <td>Оновлює локальну поточну гілку новими комітами з відповідної віддаленої гілки. git pull — це поєднання git fetch та git merge</td>
+    </tr>
+</table>
+
+<h2>Внесення змін</h2>
+
+<table border="1">
+    <tr>
+        <th>Команда</th>
+        <th>Опис</th>
+    </tr>
+    <tr>
+        <td><code>$ git log</code></td>
+        <td>Виводить історію версії поточної гілки</td>
+    </tr>
+    <tr>
+        <td><code>$ git log --follow [назва файлу]</code></td>
+        <td>Виводить історію версії вказаного файлу, включно з перейменуваннями</td>
+    </tr>
+    <tr>
+        <td><code>$ git diff [перша-гілка]...[друга-гілка]</code></td>
+        <td>Виводить різницю між двома гілками</td>
+    </tr>
+    <tr>
+        <td><code>$ git show [коміт]</code></td>
+        <td>Виводить метадані та зміни вказаного коміту</td>
+    </tr>
+    <tr>
+        <td><code>$ git add [назва файлу]</code></td>
+        <td>Зберігає зміни в файлі, готуючись до створення коміту</td>
+    </tr>
+    <tr>
+        <td><code>$ git commit -m "[повідомлення з описом]"</code></td>
+        <td>Записує зміни в файлі в історію версій, створюючи новий коміт</td>
+    </tr>
+</table>
+
+<h2>Відновлення комітів</h2>
+
+<table border="1">
+    <tr>
+        <th>Команда</th>
+        <th>Опис</th>
+    </tr>
+    <tr>
+        <td><code>$ git reset [коміт]</code></td>
+        <td>Відміняє всі коміти після вказаного, зберігаючи зміни локально</td>
+    </tr>
+    <tr>
+        <td><code>$ git reset --hard [коміт]</code></td>
+        <td>Видаляє всю історію і повертається до вказаного коміту</td>
+    </tr>
+    <tr>
+        <td colspan="2">ОБЕРЕЖНО! Зміни в історії можуть мати кепські наслідки. Якщо вам треба змінити коміти, що існують на GitHub (віддалено), дійте обережно. Якщо вам потрібна допомога, звертайтесь до github.community або до підтримки.</td>
+    </tr>
+</table>
+
+<h2>Глосарій</h2>
+
+<table border="1">
+    <tr>
+        <th>Термін</th>
+        <th>Визначення</th>
+    </tr>
+    <tr>
+        <td><code>git</code></td>
+        <td>Розподілена система контролю версій з відкритим кодом</td>
+    </tr>
+    <tr>
+        <td><code>GitHub</code></td>
+        <td>Платформа для хостингу і співпраці над репозиторіями Git</td>
+    </tr>
+    <tr>
+        <td><code>коміт (commit)</code></td>
+        <td>Об’єкт Git, стан всього репозиторію стиснутий в SHA</td>
+    </tr>
+    <tr>
+        <td><code>гілка (branch)</code></td>
+        <td>Невеликий рухомий вказівник на коміт</td>
+    </tr>
+    <tr>
+        <td><code>клон (clone)</code></td>
+        <td>Локальна версія репозиторію, включно з усіма комітами і гілками</td>
+    </tr>
+    <tr>
+        <td><code>віддалений репозиторій (remote)</code></td>
+        <td>Спільний GitHub репозиторій, що використовується членами команди для обміну змінами</td>
+    </tr>
+    <tr>
+        <td><code>fork</code></td>
+        <td>Копія репозиторію GitHub іншого користувача</td>
+    </tr>
+    <tr>
+        <td><code>запит на поєднання (pull request)</code></td>
+        <td>Спосіб порівняти і обговорити зміни на гілці з відгуками, коментарями, інтегрованими тестами і т.д.</td>
+    </tr>
+    <tr>
+        <td><code>HEAD</code></td>
+        <td>Вказівник, що позначає поточну робочу директорію. Може вказувати на різні гілки, теги і коміти з використанням git switch</td>
+    </tr>
+</table>
+
+
+  <footer>
+    <p>&copy; Всі права захищені, 2024</p>
+    <p>Розробник: курсант 212 навчальної групи Пасічник Є.О.</p>
+  </footer>
+</body>
+</html>
